@@ -40,15 +40,17 @@ class App extends Component {
   }
 
   handleAddPlayer = (name) => {
-    this.setState({
-      players: [
-        ...this.state.players, //this merges the existing objects in players state with the new one that we added.
-        {
-          name: name,
-          score: 0,
-          id: this.prevPlayerId += 1,
-        }
-      ]
+    this.setState( prevState => {
+      return {
+        players: [
+          ...prevState.players, //this merges the existing objects in players state with the new one that we added.
+          {
+            name: name,
+            score: 0,
+            id: this.prevPlayerId += 1,
+          }
+        ]
+      }
     });
   }
 
