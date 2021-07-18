@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 
 import Header from './Header';
 import Player from './Player';
+import AddPlayerForm from './AddPlayerForm';
 
 class App extends Component {
   state = {
@@ -29,10 +30,26 @@ class App extends Component {
     ]
   };
 
+  //Player id Counter
+  prevPlayerId = 4;
+
   handleScoreChange = (index, delta) => {
     this.setState( prevState => ({
       score: prevState.players[index].score += delta
     }));
+  }
+
+  handleAddPlayer = (name) => {
+    this.setState({
+      players: [
+        ...this.state.players, //this merges the existing objects in players state with the new one that we added.
+        {
+          name: name,
+          score: 0,
+          id: this.prevPlayerId += 1,
+        }
+      ]
+    });
   }
 
   handleRemovePlayer = (id) => {
@@ -64,6 +81,8 @@ class App extends Component {
             changeScore={this.handleScoreChange}           
           />
         )}
+
+        <AddPlayerForm addPlayer = {this.handleAddPlayer} />
       </div>
     );
   }
