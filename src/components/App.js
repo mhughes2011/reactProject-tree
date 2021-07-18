@@ -43,11 +43,12 @@ class App extends Component {
     });
   }
 
+
   render() {
     return (
       <div className="scoreboard">
         <Header 
-          title="Scoreboard" 
+          title="Scoreboard"
           totalPlayers={this.state.players.length} 
         />
   
