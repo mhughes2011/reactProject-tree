@@ -1,29 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import Stats from './Stats';
 import Stopwatch from './Stopwatch';
 
-const Header = (props) => {
-  const {players, title} = props;
-  //This is destructuring props.  You could also do this by bringing in the destructured object in the function declaration like this const Header = ({players, title}) => ...
+const Header = () => {
   return (
     <header>
-      <Stats players={players}/>
-      <h1>{title}</h1>
+      <Stats />
+      <h1>Scoreboard</h1>
       <Stopwatch />
     </header>
   );
-}
-
-Header.PropTypes = {
-  title: PropTypes.string,
-  players: PropTypes.arrayOf(PropTypes.object)
-};
-
-//Used in case that a prop isn't given
-Header.defaultProps = {
-  title: 'Scoreboard'
 }
 
 export default Header;
