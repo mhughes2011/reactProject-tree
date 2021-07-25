@@ -8,7 +8,6 @@ class Player extends PureComponent {
 
   //Using static means you don't have to instantiate it with the class name.  You can just call proptypes.
   static PropTypes = {
-    changeScore: PropTypes.func,
     removePlayer: PropTypes.func,
     name: PropTypes.string.isRequired,
     score: PropTypes.number.isRequired,
@@ -22,8 +21,7 @@ class Player extends PureComponent {
       id,
       score,
       index,
-      removePlayer,
-      changeScore
+      removePlayer
     } = this.props;
 
     console.log(this.props.name + ' rendered')
@@ -38,7 +36,6 @@ class Player extends PureComponent {
         <Counter 
           score={score} 
           index={index}
-          changeScore={changeScore}
         />
       </div>
     );
