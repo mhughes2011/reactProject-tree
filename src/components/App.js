@@ -80,7 +80,8 @@ class App extends Component {
       <Provider value={{
         players: this.state.players,
         actions: {
-          changeScore: this.handleScoreChange
+          changeScore: this.handleScoreChange,
+          removePlayer: this.handleRemovePlayer
         }
       }}>
         <div className="scoreboard">
@@ -94,7 +95,6 @@ class App extends Component {
               id={player.id}
               key={player.id.toString()} 
               index={index}
-              removePlayer={this.handleRemovePlayer}
               isHighScore={highScore === player.score} //is a player's score prop equal to the high score?
             />
           )}
